@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import Card from "./Card";
 
 const Cards = props => {
 	return (
-		<div className="cards-container">
+		<CardsContainer>
 			{props.cards.map(card => {
 				return <Card key={card.headline} card={card} />;
 			})}
 			{/* Using the cards prop, map over the list creating a 
           new Card component for each passing the card as the only prop*/}
-		</div>
+		</CardsContainer>
 	);
 };
 
@@ -26,3 +27,17 @@ Cards.propType = {
 		author: PropTypes.string.isRequired
 	})
 };
+
+const CardsContainer = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+	align-items: none;
+	flex-direction: row;
+	width: 100%;
+	margin-top: 16px;
+	flex-wrap: wrap;
+
+	@media (min-width: 1200px) {
+		width: 1200px;
+	}
+`;
