@@ -51,11 +51,11 @@ export default class Content extends Component {
 	};
 
 	selectTabHandler = tab => {
-		this.setState({ selected: tab });
+		this.changeSelected(this.selectedTab);
 	};
 
 	render() {
-		const selectedTab = this.state.tabs.find(tab => tab === this.state.selected);
+		const selectedTab = this.state.selected;
 		return (
 			<div className="content-container">
 				{/* 

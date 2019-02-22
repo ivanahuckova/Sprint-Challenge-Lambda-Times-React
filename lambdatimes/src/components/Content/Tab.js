@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 //selectedTab
 //selectTabHandler;
 const Tab = props => {
@@ -19,9 +20,13 @@ const Tab = props => {
 			</div>
 		);
 	}
-	return <div className={"tab active-tab"} />;
+	return <div className={"tab"}>{props.tab.toUpperCase()}</div>;
 };
 
 // Make sure you include PropTypes on your props.
 
 export default Tab;
+
+Tab.propTypes = {
+	tab: PropTypes.string.isRequired
+};
