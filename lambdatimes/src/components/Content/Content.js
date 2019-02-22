@@ -46,18 +46,16 @@ export default class Content extends Component {
 		if (this.state.selected === "all") {
 			return this.state.cards;
 		}
-		this.state.cards.filter(card => card === this.state.tabs);
+		this.state.cards.filter(card => card.tab === this.state.selected);
 		return this.state.cards;
 	};
 
-	selectTabHandler = input => {
-		this.setState({
-			selected: input
-		});
+	selectTabHandler = tab => {
+		this.setState({ selected: tab });
 	};
 
 	render() {
-		const selectedTab = this.state.selected;
+		const selectedTab = this.state.tabs.find(tab => tab === this.state.selected);
 		return (
 			<div className="content-container">
 				{/* 
